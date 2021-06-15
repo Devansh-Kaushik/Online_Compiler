@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.922.0",
+    "cockroachdb": "^1.0.3",
+    "compile-run": "^2.3.4",
+    "dynamodb": "^1.3.0",
+    "mysql": "^2.18.1",
+    "pg": "^8.6.0"
+  },
+  "name": "aws-2",
+  "version": "1.0.0",
+  "main": "aws2.js",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "server": "nodemon aws2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

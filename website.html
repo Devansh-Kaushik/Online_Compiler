@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Online IDE</title>
+    </head>
+    <body>
+        <h1>Online IDE</h1>
+        <form name="form1" method="post" target="my-iframe" action="http://localhost/aws-2/client.php">
+            <h3>Code</h3>
+            <textarea rows="13" cols="75" id="code" name="code" ></textarea> 
+            <br/>
+            <h3>Input</h3>
+            <textarea rows="10" cols="25" id="input" name="input" ></textarea> 
+            <br/>
+            <h3>Output</h3>
+            <textarea rows="20" cols="50" id="output" name="output" >
+            </textarea> 
+            <br/>
+            Language : <select name="lang[]">
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>  
+            <option value="Python">Python</option> 
+            </select>
+            Compile With Input : 
+            <input type="radio" name="inputRadio" id="inputRadio" value="true"/>yes
+            <input type="radio" name="inputRadio" id="inputRadio" value="false"/>No
+            <br/>
+            <input type="submit" name="submit" id="submit" value="Submit"><br/>
+            <input type="submit" name="reset" id="reset" value="Reset"><br/>
+        </form>
+        <br/>
+        <h3>Output</h3>
+        <iframe name="my-iframe" src="http://localhost/aws-2/client.php"></iframe>
+    
+        </body>
+    </body>
+    </html>
