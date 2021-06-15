@@ -1,12 +1,11 @@
 <?php
-require 'C:/Users/DEVANSH/Downloads/aws.phar';
+require 'C:/Users/USERNAME/Downloads/aws.phar';// you can get aws.phar it from aws doc  for php
 use Aws\S3\S3Client;
-$servername = "remotemysql.com";
-$username = "lO01dRyKJ0";
-$password = "ptMFxHu9do";
-$dbname = "lO01dRyKJ0";
+$servername = "HOSTNAME";
+$username = "USERNAME OF THE HOST";
+$password = "PASSWORD OF THE HOST";
+$dbname = "DATABASE NAME";
 $name =  uniqid();
-// on button click
 if(isset($_POST['submit'])) {
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -15,7 +14,6 @@ if(isset($_POST['submit'])) {
     // Giving unique id to the client
     $sql = "INSERT INTO detail (`Name`,`Status`) VALUES ('$name','resume')";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
     } 
     $conn->close();
     $code= $_POST['code'];
@@ -33,7 +31,7 @@ if(isset($_POST['submit'])) {
                     "lang" => $lang,
                 );
                 $json1 = json_encode($array1);
-                $bytes = file_put_contents("C:/xampp/htdocs/hello/$name.json", $json1);
+                $bytes = file_put_contents("C:/data/$name.json", $json1);
             }
             if($radio=="false")
             {
@@ -43,22 +41,22 @@ if(isset($_POST['submit'])) {
                     "lang" => $lang,
                 );
                 $json2 = json_encode($array2);
-                $bytes = file_put_contents("C:/xampp/htdocs/hello/$name.json", $json2);
+                $bytes = file_put_contents("C:/data/$name.json", $json2);
             }
         }   
     }
-    $bucket="code-compiler";
-    $key1="AKIAW4GO5H52YS65OYFV";
-    $secret="8ry9XBXq56uuiOyBFeetuDXFXTVUCDSuPrBM1+Mk";
+    $bucket="AWS Bucket Name";
+    $key1="Get YOUR AWS KEY ID";
+    $secret="Get YOUR AWS SECRET KEY ID";
     $client = S3Client::factory(array(
         'credentials' => array(
             'key' => $key1,
             'secret' => $secret
         ),
             'version' => 'latest',
-            'region' => 'ap-south-1'
+            'region' => 'GET REGION'
     ));
-    $pathToFile="C:/xampp/htdocs/hello/$name.json";
+    $pathToFile="C:/data/$name.json";
     $result = $client->putObject(array(
         'Bucket'     => $bucket,
         'Key'        => "$name.json",
@@ -66,7 +64,7 @@ if(isset($_POST['submit'])) {
         'StorageClass' => 'REDUCED_REDUNDANCY'
     ));
 
-    $file_pointer = "C:/xampp/htdocs/hello/$name.json"; 
+    $file_pointer = "C:/data/$name.json"; 
     if (!unlink($file_pointer)) { 
         echo ("$file_pointer cannot be deleted due to an error"); 
     } 
@@ -75,36 +73,36 @@ if(isset($_POST['submit'])) {
     } 
 
 
-    $filename1 = "C:/xampp/htdocs/hello/$name.txt";
+    $filename1 = "C:/data/$name.txt";
     if (file_exists($filename1)) {
         $myfile1 = fopen($filename1, "w");
         fwrite($myfile1, "");
         fclose($myfile1);
     }
     function repeat($name){
-        $bucket="code-compiler";
-        $key1="AKIAW4GO5H52YS65OYFV";
-        $secret="8ry9XBXq56uuiOyBFeetuDXFXTVUCDSuPrBM1+Mk";
+        $bucket="Bucket name";
+        $key1="Get YOUR AWS KEY ID";
+        $secret="Get YOUR AWS SECRET KEY ID";
         $client = S3Client::factory(array(
             'credentials' => array(
                 'key' => $key1,
                 'secret' => $secret
             ),
                 'version' => 'latest',
-                'region' => 'ap-south-1'
+                'region' => 'GET REGION'
         ));
         $FileName="$name.txt";
         $info = $client->doesObjectExist($bucket, $FileName);
         if ($info)
         {
-            $pathToFile1="C:/xampp/htdocs/hello/$name.txt";
+            $pathToFile1="C:/data/$name.txt";
             $result = $client->getObject(array(
                 'Bucket'     => $bucket,
                 'Key'        => "$name.txt",
                 'SaveAs' => $pathToFile1
             ));
-            $file = fopen("C:/xampp/htdocs/hello/$name.txt","r");
-            echo fread($file,filesize("C:/xampp/htdocs/hello/$name.txt"));
+            $file = fopen("C:/data/$name.txt","r");
+            echo fread($file,filesize("C:/data/$name.txt"));
             fclose($file);
             $result = $client->deleteObject(array(
                 'Bucket' => $bucket,
@@ -120,26 +118,4 @@ if(isset($_POST['submit'])) {
 
     repeat($name);
 }
-/*if(isset($_POST['reset']))
-{
-    $file_pointer1 = "C:/xampp/htdocs/hello/$name.json"; 
-   
-    // Use unlink() function to delete a file 
-    if (!unlink($file_pointer1)) { 
-        echo ("$file_pointer1 cannot be deleted due to an error"); 
-    } 
-    else { 
-        echo ("$file_pointer1 has been deleted"); 
-    }
-    $file_pointer2 = "C:/xampp/htdocs/hello/$name.txt"; 
-   
-    // Use unlink() function to delete a file 
-    if (!unlink($file_pointer2)) { 
-        echo ("$file_pointer2 cannot be deleted due to an error"); 
-    } 
-    else { 
-        echo ("$file_pointer2 has been deleted"); 
-    }
-    
-}*/
 ?>
