@@ -2,18 +2,18 @@ var mysql = require('mysql');
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const {c, cpp, node, python, java} = require('compile-run');
-const ACCESS_KEY_ID = "AKIAW4GO5H52YS65OYFV";
-const SECRET_ACCESS_KEY = "8ry9XBXq56uuiOyBFeetuDXFXTVUCDSuPrBM1+Mk";
-const BUCKET_NAME = "code-compiler";
+const ACCESS_KEY_ID = "Get your ACCESS KEY ID";
+const SECRET_ACCESS_KEY = "Get your SECRET ACCESS KEY ID";
+const BUCKET_NAME = "CREATE YOUR BUCKET AND WRITE HERE THE NAME OF YOUR BUCKET";
 var s3 = new AWS.S3({
     accessKeyId: ACCESS_KEY_ID,
     secretAccessKey: SECRET_ACCESS_KEY,
 })
 var connection = mysql.createConnection({
-    host     : 'remotemysql.com',
-    user     : 'lO01dRyKJ0',
-    password : 'ptMFxHu9do',
-    database : 'lO01dRyKJ0'
+    host     : 'Host DETAILS',
+    user     : 'USER OF THAT HOST',
+    password : 'PASSWORD OF THE DATABASE',
+    database : 'DATABASE NAME'
 });
 connection.connect(function(err) {
     if(err){
@@ -404,18 +404,8 @@ function work()
                         if(status=="Done")
                         {
                             console.log("status:DONE");
-                            /*connection.query(" DELETE FROM detail WHERE Status='Done'",function(err,result){
-                                if(err) throw err;
-                            })*/
+                           
                         }
-                        /*connection.query('SELECT count(*) as total FROM detail', function(err, result) {
-                            const count = Number(result[0].total);
-                            if(count==0)
-                            {
-                                console.log("Empty DATABASE");
-                                work();
-                            }
-                        });*/
                     }
                 });
             });
