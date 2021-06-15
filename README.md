@@ -2,13 +2,10 @@
 
 So this compiler will run C,C++,Python as well as java code.
 
-***********************************
+*************************************
 MODULES USED IN NODE-JS SERVER ARE
-1)fs
-2)mysql
-3)aws-sdk
-4)compile-run
-***********************************
+1)Fs  2)Mysql  3)Aws-sdk  4)Compile-run
+*************************************
 This Compiler has two sides one is the user side that is the client side and the other is the server side where the code gets compiled.
 This project is using s3bucket thats the aws service and a remote mysql databse.Based on these two the project is working.
 So at the client side user comes and types his code he selects the language he also selects that is his code carrying inputs or not,so after clicking on sumbit 
