@@ -18,7 +18,7 @@ Now from the Client side after submitting the code client starts waiting for the
 
 I made this project like this because as students we all can make thses types of project on localhost and make them work and some of them are easy to deploy also as there are many 
 free hostiing websites but the projects like this is very hard to delploy as the node server should be connected to a windowws or a linux server because to run code you system must have PYTHON CPP C and JAVA installled 
-If anyone wwants to upgrade this project i welcome you .
+If anyone wants to upgrade this project i welcome you .
 
 THATS HOW  MOST PROBABLY ALL COMPILER ARE WORKING LIKE HACKERRANK || LEETCOODE || CODECHEF || PROGRAMIZE || GDB COMPILER ETC
 
