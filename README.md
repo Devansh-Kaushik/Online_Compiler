@@ -3,10 +3,10 @@
 So this compiler will run C,C++,Python as well as java code.
 
 *************************************
-MODULES USED IN NODE-JS SERVER ARE
+MODULES USED IN NODE-JS SERVER ARE: 
 1)Fs  2)Mysql  3)Aws-sdk  4)Compile-run
 *************************************
-PACKAGE NEEDED FOR PHP
+PACKAGE NEEDED FOR PHP: 
 aws.phar
 *************************************
 This Compiler has two sides one is the user side that is the client side and the other is the server side where the code gets compiled.
