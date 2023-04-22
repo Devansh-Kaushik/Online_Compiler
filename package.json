@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "main": "aws2.js",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.22"
   },
   "scripts": {
     "server": "nodemon aws2.js",
